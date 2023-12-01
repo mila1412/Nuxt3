@@ -2,6 +2,7 @@
 // const { count, addCount } = useAddCount();
 const store = useHomeStore();
 // const { $hello } = useNuxtApp();
+const selectedDate = ref(new Date());
 </script>
 
 <template>
@@ -15,6 +16,7 @@ const store = useHomeStore();
   <h1>{{ $hello("Mila") }}</h1>
   <!-- new Date().getTime() -->
   <h2 v-timeformat="1701444592298"></h2>
+  <VDatePicker v-model="selectedDate" />
 </template>
 
 <style scoped></style>
