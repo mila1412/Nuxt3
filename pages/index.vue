@@ -13,7 +13,9 @@ const selectedDate = ref(new Date());
   <button @click="addCount">add</button> -->
   <p>{{ store.count }}</p>
   <button @click="store.addCount">add</button>
-  <h1>{{ $hello("Mila") }}</h1>
+  <ClientOnly>
+    <h1>{{ $hello("Mila") }}</h1>
+  </ClientOnly>
   <!-- new Date().getTime() -->
   <h2 v-timeformat="1701444592298"></h2>
   <VDatePicker v-model="selectedDate" />
