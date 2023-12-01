@@ -1,7 +1,7 @@
 <script setup>
 // const { count, addCount } = useAddCount();
 const store = useHomeStore();
-const { $hello } = useNuxtApp();
+// const { $hello } = useNuxtApp();
 </script>
 
 <template>
@@ -13,6 +13,8 @@ const { $hello } = useNuxtApp();
   <p>{{ store.count }}</p>
   <button @click="store.addCount">add</button>
   <h1>{{ $hello("Mila") }}</h1>
+  <!-- new Date().getTime() -->
+  <h2 v-timeformat="1701444592298"></h2>
 </template>
 
 <style scoped></style>
