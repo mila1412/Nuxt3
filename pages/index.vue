@@ -11,6 +11,10 @@ const fetchData = async () => {
 </script>
 
 <template>
+  <NuxtLink to="/async-data">useAsyncData</NuxtLink>
+  <span> / </span>
+  <NuxtLink to="/a-lot-of-fetch">a-lot-of-fetch</NuxtLink>
+  <p>{{ data }}</p>
   <div>Page: Index</div>
   <Box />
   <BoxBtn />
@@ -18,9 +22,11 @@ const fetchData = async () => {
   <button @click="addCount">add</button> -->
   <p>{{ store.count }}</p>
   <button @click="store.addCount">add</button>
+
   <ClientOnly>
     <h1>{{ $hello("Mila") }}</h1>
   </ClientOnly>
+
   <!-- new Date().getTime() -->
   <h2 v-timeformat="1701444592298"></h2>
   <VDatePicker v-model="selectedDate" />
