@@ -19,14 +19,14 @@ export default defineNuxtConfig({
       ],
     },
   },
-  components: {
-    dirs: [
-      {
-        path: "~/components/global",
-        global: true,
-      },
-    ],
-  },
+  // components: {
+  //   dirs: [
+  //     {
+  //       path: "~/components/global",
+  //       global: true,
+  //     },
+  //   ],
+  // },
   imports: {
     dirs: ["stores"],
   },
