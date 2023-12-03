@@ -38,4 +38,9 @@ export default defineNuxtConfig({
       "apiUrl": ''
     }
   }, 
+  "vite": {
+    "define": {
+      "process.env": process.env,
+    },
+  }, 
 });
