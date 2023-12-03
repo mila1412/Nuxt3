@@ -1,16 +1,21 @@
 <script setup>
+import { storeToRefs } from "pinia";
 const store = useVoteStore();
+// ref、computed 需要 storeToRefs
+const { voteList, isLoad } = storeToRefs(store);
+// reactive 、function 不需要
+const { voteSend } = store;
 </script>
 <template>
-  <div class="card" v-for="card in store.voteList" :key="card.path">
+  <div class="card" v-for="card in voteList" :key="card.path">
     <div class="card_info">
       <img :src="card?.path" :alt="card?.name" />
       <h1>
         {{ card?.name }}
       </h1>
     </div>
-    <VoteBtn @click="store.voteSend(card?.name)">
-      {{ store.isLoad ? "重新計算中..." : card?.count }}
+    <VoteBtn @click="voteSend(card?.name)">
+      {{ isLoad ? "重新計算中..." : card?.count }}
     </VoteBtn>
   </div>
 </template>
