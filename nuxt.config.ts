@@ -41,9 +41,11 @@ export default defineNuxtConfig({
     }
   }, 
   "vite": {
+    // 環境變數
     "define": {
       "process.env": process.env,
     },
+    // svg
     plugins: [
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), 'assets/icons')],
@@ -51,5 +53,14 @@ export default defineNuxtConfig({
         customDomId: '__svg__icons__dom__',
       }),
     ], 
+    // CORS
+    "server": {
+      "proxy": {
+        '/VsWeb/api': {
+          "target": 'https://www.vscinemas.com.tw/',
+          "changeOrigin": true,
+        },
+      },
+    }, 
   }, 
 });

@@ -1,4 +1,5 @@
 <script setup>
+// loding
 const nuxtApp = useNuxtApp();
 const isLoading = ref(false);
 nuxtApp.hook("page:start", () => {
@@ -8,7 +9,14 @@ nuxtApp.hook("page:finish", () => {
   isLoading.value = false;
 });
 
+// svg
 import "virtual:svg-icons-register";
+
+// CORS
+onMounted(async () => {
+  const response = await $fetch("/VsWeb/api/GetLstDicCinema");
+  console.log(response);
+});
 </script>
 
 <template>
