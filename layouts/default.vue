@@ -7,10 +7,14 @@ nuxtApp.hook("page:start", () => {
 nuxtApp.hook("page:finish", () => {
   isLoading.value = false;
 });
+
+import "virtual:svg-icons-register";
 </script>
 
 <template>
   <div>
+    <SvgIcon name="icon-community" class="icon" />
+    <SvgIcon name="mila/icon-documentation" />
     <p>Layout: default</p>
     <!-- 方法一 (只能放在 layout or app.vue) -->
     <!-- <NuxtLoadingIndicator color="#f00" :height="10" :throttle="0" /> -->
@@ -24,5 +28,8 @@ nuxtApp.hook("page:finish", () => {
 <style scoped>
 .loading {
   color: aqua;
+}
+.icon {
+  width: 20px;
 }
 </style>

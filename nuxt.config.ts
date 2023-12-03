@@ -1,4 +1,6 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import path from 'path'
+
 export default defineNuxtConfig({
   // 每一頁 meta 設定
   app: {
@@ -42,5 +44,12 @@ export default defineNuxtConfig({
     "define": {
       "process.env": process.env,
     },
+    plugins: [
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'assets/icons')],
+        symbolId: '[dir]/[name]',
+        customDomId: '__svg__icons__dom__',
+      }),
+    ], 
   }, 
 });
