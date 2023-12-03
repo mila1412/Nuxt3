@@ -31,4 +31,11 @@ export default defineNuxtConfig({
     dirs: ["stores"],
   },
   modules: ["@pinia/nuxt"],
+  "runtimeConfig": {
+    // token 只能在 server 階段取得
+    "token": '1234567890',
+    "public": {
+      "apiUrl": 'https://jsonplaceholder.typicode.com',
+    }
+  }, 
 });

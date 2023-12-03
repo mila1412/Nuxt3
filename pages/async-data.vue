@@ -1,6 +1,6 @@
 <script setup>
 // $fetch
-// 一般用 $fetch 會同時在 server 跟 client 去拿資料，所以才要用 useFetch 跟 useAsyncData
+// 重新整理頁面時用 $fetch 會同時在 server 跟 client 去拿資料，所以才要用 useFetch 跟 useAsyncData
 const data = await $fetch("https://jsonplaceholder.typicode.com/posts/1");
 
 // useFetch
