@@ -1,7 +1,6 @@
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
-
-export default defineNuxtConfig({
+const config = {
   // 每一頁 meta 設定
   app: {
     head: {
@@ -55,12 +54,19 @@ export default defineNuxtConfig({
     ], 
     // CORS
     "server": {
-      "proxy": {
-        '/VsWeb/api': {
-          "target": 'https://www.vscinemas.com.tw/',
-          "changeOrigin": true,
-        },
-      },
+      "proxy": {},
     }, 
   }, 
-});
+ }
+ 
+ if(process.env.NODE_ENV === 'development') {
+  config.vite.server.proxy = {
+    '/VsWeb/api': {
+      "target": 'https://www.vscinemas.com.tw/',
+      "changeOrigin": true,
+    },
+  }
+  console.log(config.vite.server.proxy)
+ }
+ 
+ export default defineNuxtConfig(config)
