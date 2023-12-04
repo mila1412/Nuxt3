@@ -1,6 +1,6 @@
 <script setup>
 // $fetch
-// 重新整理頁面時用 $fetch 會同時在 server 跟 client 去拿資料，所以才要用 useFetch 跟 useAsyncData
+// $fetch 適合透過使用者互動觸發的 API 請求，在 setup 用 $fetch 會同時在 server 跟 client 去拿資料，所以才要用 useFetch 跟 useAsyncData
 const data = await $fetch("https://jsonplaceholder.typicode.com/posts/1");
 
 // useFetch
@@ -23,9 +23,14 @@ const fetchData = await useFetch(
 
 // useAsyncData
 // useFetch = useAsyncData + $fetch，單純拿資料用 useFetch (key 自動生成)，針對 key 與非同步處理用 useAsyncData
-const asyncData = await useAsyncData("userInfo", () =>
-  $fetch("https://jsonplaceholder.typicode.com/posts/3")
-);
+// const asyncData = await useAsyncData("userInfo", () =>
+//   $fetch("https://jsonplaceholder.typicode.com/posts/3")
+// );
+const asyncData = await useAsyncData("userInfo", async () => {
+  const res = await $fetch("https://jsonplaceholder.typicode.com/posts/3");
+  return res;
+});
+const refresh = () => refreshNuxtData("userInfo");
 
 // 在 client 重新獲取資料的兩種方法
 // 1. 透過 useFetch/useAsyncData 回傳的 refresh
@@ -49,8 +54,8 @@ const axiosData = await useAsyncData("banner", async () => {
   <p>------</p>
   {{ fetchData }}
   <p>------</p>
-  {{ asyncData }}
 
+  {{ asyncData }}
   <button @click="refresh">refresh</button>
 
   <p>------</p>
