@@ -31,7 +31,29 @@ const config = {
   imports: {
     dirs: ["stores"],
   },
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n"],
+  "i18n": {
+    "strategy": 'no_prefix',
+    "locales": [
+      {
+        "code": 'zh-TW',
+        "file": 'zh-TW.json'
+      },
+      {
+        "code": 'en-US',
+        "file": 'en-US.json'
+      },
+      {
+        "code": 'ja-JP',
+        "file": 'ja-JP.json'
+      },
+    ],
+    "langDir": 'language',
+    "defaultLocale": 'zh-TW',
+    "detectBrowserLanguage": {
+      "useCookie": true,
+    }
+  },
   "runtimeConfig": {
     // token 只能在 server 階段取得
     "token": '',
@@ -66,7 +88,6 @@ const config = {
       "changeOrigin": true,
     },
   }
-  console.log(config.vite.server.proxy)
  }
  
  export default defineNuxtConfig(config)
