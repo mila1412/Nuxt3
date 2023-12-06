@@ -14,6 +14,8 @@ const fetchData = async () => {
   <NuxtLink to="/async-data">useAsyncData</NuxtLink>
   <span> / </span>
   <NuxtLink to="/a-lot-of-fetch">a-lot-of-fetch</NuxtLink>
+  <span> / </span>
+  <NuxtLink to="/loading-test">loading-test</NuxtLink>
   <div>Page: Index</div>
   <Box />
   <BoxBtn />
