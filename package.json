@@ -27,6 +27,7 @@
     "@popperjs/core": "^2.11.8",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
+    "mongoose": "^8.0.2",
     "pinia": "^2.1.7",
     "v-calendar": "^3.1.2",
     "xss": "^1.0.14"

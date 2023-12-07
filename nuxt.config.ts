@@ -78,16 +78,19 @@ const config = {
     "server": {
       "proxy": {},
     }, 
+  },
+  "nitro": {
+    "plugins": ["~/server/db/index.js"],
   }, 
- }
- 
- if(process.env.NODE_ENV === 'development') {
-  config.vite.server.proxy = {
-    '/VsWeb/api': {
-      "target": 'https://www.vscinemas.com.tw/',
-      "changeOrigin": true,
-    },
-  }
- }
- 
- export default defineNuxtConfig(config)
+}
+
+if(process.env.NODE_ENV === 'development') {
+config.vite.server.proxy = {
+  '/VsWeb/api': {
+    "target": 'https://www.vscinemas.com.tw/',
+    "changeOrigin": true,
+  },
+}
+}
+
+export default defineNuxtConfig(config)
