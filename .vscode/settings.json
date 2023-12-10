@@ -22,5 +22,8 @@
     },
     "prettier.disableLanguages": [],
     "editor.tabCompletion": "on",
+    "i18n-ally.localesPaths": [
+        "language"
+    ],
 }
     

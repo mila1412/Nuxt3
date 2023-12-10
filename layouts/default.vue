@@ -20,6 +20,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Dialog />
   <div>
     <SvgIcon name="icon-community" class="icon" />
     <SvgIcon name="mila/icon-documentation" />
