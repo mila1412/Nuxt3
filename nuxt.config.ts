@@ -31,7 +31,7 @@ const config = {
   imports: {
     dirs: ["stores"],
   },
-  modules: ["@pinia/nuxt", "@nuxtjs/i18n"],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@nuxtjs/color-mode"],
   "i18n": {
     "strategy": 'no_prefix',
     "locales": [
