@@ -26,6 +26,9 @@ export const useIndexStore = defineStore("indexStore", () => {
     repoList.value = [];
   };
 
+  const resetOver = () => (isReposOver.value = false);
+  const isUserName = ref(false);
+
   const addPage = () => {
     state.page++;
   };
@@ -43,16 +46,21 @@ export const useIndexStore = defineStore("indexStore", () => {
       state.avatarUrl = avatar_url;
       state.updatedAt = updated_at;
       state.publicRepos = public_repos;
+      isUserName.value = true;
     } catch (error) {
       if (error.response.status === 404) {
         state.avatarUrl = notFoundJpg;
         state.userName = "This user is not found!!!";
+        // 查無此人要 return 掉後續取列表的動作 + 把 loading 清掉
+        isUserName.value = false;
+        isReposOver.value = true;
       }
     }
   };
 
   // 取得Repo列表
   const fetchRepos = async () => {
+    if (!isUserName.value) return;
     if (isReposOver.value) return;
     if (isLoadRepos.value) return;
     isLoadRepos.value = true;
@@ -71,6 +79,7 @@ export const useIndexStore = defineStore("indexStore", () => {
     addPage,
     setUserName,
     resetData,
+    resetOver,
     repoList,
     isReposOver,
     isLoadRepos,

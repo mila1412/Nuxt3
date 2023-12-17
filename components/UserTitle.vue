@@ -1,5 +1,5 @@
 <script setup>
-const { state } = useIndexStore();
+const { state, resetOver } = useIndexStore();
 
 const { searchData } = useRepoSearch();
 
@@ -14,6 +14,8 @@ const handEditNameFn = () => {
 
 const handSeachTextFn = () => {
   isEdit.value = false;
+  // 重新搜尋時，若列表已經是最後一頁 (isReposOver = true) 會被 return，所以要重設
+  resetOver();
   searchData(editNameText.value);
 };
 
