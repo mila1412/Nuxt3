@@ -6,6 +6,6 @@ export default async (_nitroApp) => {
     await mongoose.connect("mongodb+srv://password@...mongodb.net/DBName");
     console.log("連接 MongoDB");
   } catch (e) {
-    console.error("Error MongoDB =>", e);
+    console.error("Error MongoDB");
   }
 };
